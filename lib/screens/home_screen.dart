@@ -40,9 +40,38 @@ class HomeScreen extends StatelessWidget {
           // temp data
           Todo todo = Todo(userId: 3, title: 'sample post', completed: false);
           todoController.postTodo(todo).then((value) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                duration: const Duration(milliseconds: 1000),
-                content: Text('Post Data $value')));
+            showDialog<void>(
+              context: context,
+              barrierDismissible: false, // user must tap button!
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  backgroundColor: Color(0xFFC5E1A5),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  elevation: 4,
+                  title: Center(child: const Text('HTTP POST')),
+                  content: SingleChildScrollView(
+                    child: ListBody(
+                      children: const <Widget>[
+                        Center(child: Text('Pemberitahuan')),
+                        Center(child: Text('Data berhasil dikirimkan')),
+                        Center(child: Text('POST Method')),
+                      ],
+                    ),
+                  ),
+                  actions: <Widget>[
+                    Center(
+                      child: TextButton(
+                        child: const Text('OK'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              },
+            );
           });
         },
         child: const Icon(Icons.add),
@@ -75,11 +104,44 @@ class HomeScreen extends StatelessWidget {
                               todoController
                                   .updatePatchCompleted(todo!)
                                   .then((value) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        duration:
-                                            const Duration(milliseconds: 1000),
-                                        content: Text('Patch Data $value')));
+                                showDialog<void>(
+                                  context: context,
+                                  barrierDismissible:
+                                      false, // user must tap button!
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      backgroundColor: Color(0xFFB0BEC5),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      elevation: 4,
+                                      title: Center(
+                                          child: const Text('HTTP Patch')),
+                                      content: SingleChildScrollView(
+                                        child: ListBody(
+                                          children: const <Widget>[
+                                            Center(
+                                                child: Text('Pemberitahuan')),
+                                            Center(
+                                                child: Text(
+                                                    'Data berhasil diupdate')),
+                                            Center(child: Text('PATCH Method')),
+                                          ],
+                                        ),
+                                      ),
+                                      actions: <Widget>[
+                                        Center(
+                                          child: TextButton(
+                                            child: const Text('OK'),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
                               });
                             },
                             child: buildCallContainer(
@@ -91,11 +153,44 @@ class HomeScreen extends StatelessWidget {
                               todoController
                                   .updatePutCompleted(todo!)
                                   .then((value) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        duration:
-                                            const Duration(milliseconds: 1000),
-                                        content: Text('Put Data $value')));
+                                showDialog<void>(
+                                  context: context,
+                                  barrierDismissible:
+                                      false, // user must tap button!
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      backgroundColor: Color(0xFFFFF59D),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      elevation: 4,
+                                      title:
+                                          Center(child: const Text('HTTP PUT')),
+                                      content: SingleChildScrollView(
+                                        child: ListBody(
+                                          children: const <Widget>[
+                                            Center(
+                                                child: Text('Pemberitahuan')),
+                                            Center(
+                                                child: Text(
+                                                    'Data berhasil diupdate')),
+                                            Center(child: Text('PUT Method')),
+                                          ],
+                                        ),
+                                      ),
+                                      actions: <Widget>[
+                                        Center(
+                                          child: TextButton(
+                                            child: const Text('OK'),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
                               });
                             },
                             child: buildCallContainer(
@@ -105,11 +200,45 @@ class HomeScreen extends StatelessWidget {
                           InkWell(
                             onTap: () {
                               todoController.deleteTodo(todo!).then((value) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        duration:
-                                            const Duration(milliseconds: 1000),
-                                        content: Text('Delete Data $value')));
+                                showDialog<void>(
+                                  context: context,
+                                  barrierDismissible:
+                                      false, // user must tap button!
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      backgroundColor: Color(0xFFEF9A9A),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      elevation: 4,
+                                      title: Center(
+                                          child: const Text('HTTP DELETE')),
+                                      content: SingleChildScrollView(
+                                        child: ListBody(
+                                          children: const <Widget>[
+                                            Center(
+                                                child: Text('Pemberitahuan')),
+                                            Center(
+                                                child: Text(
+                                                    'Data berhasil dihapus')),
+                                            Center(
+                                                child: Text('DELETE Method')),
+                                          ],
+                                        ),
+                                      ),
+                                      actions: <Widget>[
+                                        Center(
+                                          child: TextButton(
+                                            child: const Text('OK'),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
                               });
                             },
                             child: buildCallContainer(
