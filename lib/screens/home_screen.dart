@@ -45,11 +45,11 @@ class HomeScreen extends StatelessWidget {
               barrierDismissible: false, // user must tap button!
               builder: (BuildContext context) {
                 return AlertDialog(
-                  backgroundColor: Color(0xFFC5E1A5),
+                  backgroundColor: const Color(0xFFC5E1A5),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
                   elevation: 4,
-                  title: Center(child: const Text('HTTP POST')),
+                  title: const Center(child: Text('HTTP POST')),
                   content: SingleChildScrollView(
                     child: ListBody(
                       children: const <Widget>[
@@ -110,13 +110,13 @@ class HomeScreen extends StatelessWidget {
                                       false, // user must tap button!
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      backgroundColor: Color(0xFFB0BEC5),
+                                      backgroundColor: const Color(0xFFB0BEC5),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(15)),
                                       elevation: 4,
-                                      title: Center(
-                                          child: const Text('HTTP Patch')),
+                                      title: const Center(
+                                          child: Text('HTTP Patch')),
                                       content: SingleChildScrollView(
                                         child: ListBody(
                                           children: const <Widget>[
@@ -159,13 +159,13 @@ class HomeScreen extends StatelessWidget {
                                       false, // user must tap button!
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      backgroundColor: Color(0xFFFFF59D),
+                                      backgroundColor: const Color(0xFFFFF59D),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(15)),
                                       elevation: 4,
                                       title:
-                                          Center(child: const Text('HTTP PUT')),
+                                          const Center(child: Text('HTTP PUT')),
                                       content: SingleChildScrollView(
                                         child: ListBody(
                                           children: const <Widget>[
@@ -206,13 +206,13 @@ class HomeScreen extends StatelessWidget {
                                       false, // user must tap button!
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      backgroundColor: Color(0xFFEF9A9A),
+                                      backgroundColor: const Color(0xFFEF9A9A),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(15)),
                                       elevation: 4,
-                                      title: Center(
-                                          child: const Text('HTTP DELETE')),
+                                      title: const Center(
+                                          child: Text('HTTP DELETE')),
                                       content: SingleChildScrollView(
                                         child: ListBody(
                                           children: const <Widget>[
@@ -268,7 +268,7 @@ class HomeScreen extends StatelessWidget {
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(16)),
       child: Center(
           child: Text(
-        '$title',
+        title,
         style: const TextStyle(
             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
       )),

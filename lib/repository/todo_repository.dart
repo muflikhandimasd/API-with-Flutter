@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:try_rest_api_flutter/models/todo.dart';
 import 'package:try_rest_api_flutter/repository/repository.dart';
 import 'package:http/http.dart' as http;
@@ -75,7 +77,6 @@ class TodoRepository implements Repository {
   Future<String> postTodo(Todo todo) async {
     print('${todo.toJson()}');
     var url = Uri.parse('$dataURL/todos/');
-    var result = '';
     var response = await http.post(url, body: todo.toJson());
     // Fake server => get return type != post type
     // change to Json method in model

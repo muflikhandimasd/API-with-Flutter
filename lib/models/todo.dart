@@ -14,7 +14,7 @@ class Todo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['userId'] = userId.toString();
     data['id'] = id.toString();
     data['title'] = title;
